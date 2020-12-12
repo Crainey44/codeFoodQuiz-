@@ -3,12 +3,14 @@ const choices = Array.from(document.querySelectorAll('.choice-text'));
 const scoreBar = document.querySelector('#scoreBar');
 const scoreText = document.querySelector('#score');
 const scoreBarFull = document.querySelector('#scoreBarFull');
+var timeE1 = document.querySelector(".time");
+    timeE1.textContent = "Time: 0";
 
 let currentQuestions = {}
 let approvingAnswers = true
 let score = 0
 let questionsCounter = 0
-var availableQuestions = []
+let availableQuestions = []
 
 let questions = [
     {
@@ -55,6 +57,7 @@ startGame = () => {
     availableQuestions = [...questions]
     getNewQuestion()
 }
+console.log(startGame)
 
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionsCounter > MAX_QUESTIONS) {
@@ -64,11 +67,11 @@ getNewQuestion = () => {
     }
 
     questionCounter++
-    scoreText.innerText = "Question $(questionCounter) of (MAX_QUESTIONS)"
+    scoreText.innerText = 'Question $questionCounter} of {MAX_QUESTIONS}'
     scoreBarFull.style.width = '${(questioncounter/MAX_QUESTIONS) * 100}%'
 
     const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
-    currentQuestion = availableQuestions(questionsIndex)
+    currentQuestion = availableQuestions[questionsIndex]
     question.innerText = currentQuestion.question
 
     choices.forEach(choice => {
@@ -77,7 +80,7 @@ getNewQuestion = () => {
     })
 
     availableQuestion.splice(questionsIndex, 1)
-
+    console.log(availableQuestions)
     approvingAnswers = true
 
 }
@@ -96,10 +99,10 @@ choices.forEach(choice => {
             incrementScore(SCORE_POINTS)
         }
 
-        selectedAnswer.parentElement.classList.add(classToApply)
+        selectedChoice.parentElement.classList.add(classToApply)
 
         setTimeout(() => {
-            selectedAnswer.parentElement.classList.remove(classToApply)
+            selectedChoice.parentElement.classList.remove(classToApply)
             getNewQuestion()
         }, 1000)
     })

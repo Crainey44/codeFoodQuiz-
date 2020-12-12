@@ -28,6 +28,13 @@ body {
     width: 100%;
 }
 
+.correct {
+    background: linear-gradient(32deg, rgba(11, 223, 36) 0%, rgb(41,232, 111) 100%)
+}
+.incorrect {
+    background: linear-gradient(32deg, rgba(230, 29, 29, 1) 0%, rgb(224,11, 1) 100%)
+}
+
 /*heads up Display */
 #scr {
     display:flex;
@@ -46,7 +53,7 @@ body {
 #scoreBar {
     width: 20rem;
     height:3rem;
-    border: 0.2rem solid rgb(black);
+    border: 0.2rem solid rgb(223, 131, 11);
     margin-top: 2rem;
     border-radius: 50px;
     overflow: hidden;
@@ -54,7 +61,7 @@ body {
 
 #scoreBarFull {
     height: 100%;
-    background: rgb(black);
+    background: rgb(223, 131, 11);
     width: 0%;
 }
 
