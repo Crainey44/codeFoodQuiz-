@@ -1,10 +1,9 @@
 const question = document.querySelector('#question');
 const choices = Array.from(document.querySelectorAll('.choice-text'));
 const scoreBar = document.querySelector('#scoreBar');
-const scoreText = document.querySelector('#score');
+const scoreText = document.querySelector('#scoreText');
 const scoreBarFull = document.querySelector('#scoreBarFull');
 var timeE1 = document.querySelector(".time");
-    timeE1.textContent = "Time: 0";
 
 let currentQuestions = {}
 let approvingAnswers = true
@@ -63,12 +62,12 @@ getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionsCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('/end.html')
+        return window.location.assign('./end.html')
     }
 
     questionCounter++
-    scoreText.innerText = 'Question $questionCounter} of {MAX_QUESTIONS}'
-    scoreBarFull.style.width = '${(questioncounter/MAX_QUESTIONS) * 100}%'
+    scoreText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+    scoreBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
 
     const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
     currentQuestion = availableQuestions[questionsIndex]
@@ -79,7 +78,7 @@ getNewQuestion = () => {
         choice.innerText = currentQuestion['choice' + number]
     })
 
-    availableQuestion.splice(questionsIndex, 1)
+    availableQuestions.splice(questionsIndex, 1)
     console.log(availableQuestions)
     approvingAnswers = true
 
