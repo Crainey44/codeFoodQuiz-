@@ -18,7 +18,7 @@ let questions = [
     choice2: 'carrot',
     choice3: 'spinach',
     choice4: 'cabbage',
-    answer: 4,
+    Answer: 4,
     },
     {
     question:'What is the main ingredient in vichyssoise?',
@@ -26,7 +26,7 @@ let questions = [
     choice2: 'clams',   
     choice3: 'tomatoes',  
     choice4: 'potatoes',
-    answer: 4,
+    Answer: 4,
     },
     {
     question: 'What country produces the most potatoes?',
@@ -34,7 +34,7 @@ let questions = [
     choice2: 'United States', 
     choice3: 'Ireland', 
     choice4: 'Russia', 
-    answer: 1,
+    Answer: 1,
     },
     {   
     question: 'In the drink called a zombie, what is the main alcoholic ingredient?',
@@ -42,7 +42,7 @@ let questions = [
     choice2: 'brandy',  
     choice3: 'rum', 
     choice4: 'whiskey',
-    answer: 4,
+    Answer: 4,
     },            
 ]
 console.log(question)
