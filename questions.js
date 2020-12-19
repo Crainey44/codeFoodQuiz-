@@ -1,7 +1,7 @@
 const question = document.querySelector('#question');
 const choices = Array.from(document.querySelectorAll('.choice-text'));
 const scoreBar = document.querySelector('#scoreBar');
-const scoreText = document.querySelector('#scoreText');
+const scoreText = document.querySelector('#score');
 const scoreBarFull = document.querySelector('#scoreBarFull');
 var timeE1 = document.querySelector(".time");
 
@@ -42,7 +42,7 @@ let questions = [
     choice2: 'brandy',  
     choice3: 'rum', 
     choice4: 'whiskey',
-    Answer: 4,
+    Answer: 3,
     },            
 ]
 console.log(question)
@@ -81,7 +81,7 @@ getNewQuestion = () => {
     availableQuestions.splice(questionsIndex, 1)
     console.log(availableQuestions)
     approvingAnswers = true
-
+    scoreText.innerText = score;
 }
 
 choices.forEach(choice => {
@@ -92,8 +92,7 @@ choices.forEach(choice => {
         const selectedChoice = e.target
         const selectedAnswer = selectedChoice.dataset['number']
 
-        let classToApply = selectedAnswer == currentQuestions.answer ? 'correct' : 'incorrect'
-
+        let classToApply = selectedAnswer == currentQuestion.Answer ? 'correct' : 'incorrect'
         if(classToApply === 'correct') {
             incrementScore(SCORE_POINTS)
         }
@@ -109,6 +108,7 @@ choices.forEach(choice => {
 
 incrementScore = num => {
     score +=num
+    
     scoreText.innerText = score
 }
     startGame ()
